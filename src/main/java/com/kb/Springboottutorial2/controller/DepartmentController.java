@@ -2,7 +2,6 @@ package com.kb.Springboottutorial2.controller;
 
 import com.kb.Springboottutorial2.entity.Department;
 import com.kb.Springboottutorial2.service.DepartmentService;
-import com.kb.Springboottutorial2.service.DepartmentServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -39,5 +38,11 @@ public class DepartmentController {
     public Department updateDepartment(@PathVariable("id") Long departmentId,
                                        @RequestBody Department department) {
         return departmentService.updateDepartment(departmentId,department);
+    }
+
+    @GetMapping("/departments/name/{name}")
+    public Department fetchDepartmentByName(@PathVariable("name") String departmentName) {
+        departmentService.fetchDepartmentByName(departmentName);
+        return departmentService.fetchDepartmentByName(departmentName);
     }
 }
